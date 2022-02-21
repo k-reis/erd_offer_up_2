@@ -1,6 +1,8 @@
 class Message < ApplicationRecord
   # Direct associations
 
+  belongs_to :seller
+
   belongs_to :item
 
   # Indirect associations

@@ -1,6 +1,9 @@
 class Seller < ApplicationRecord
   # Direct associations
 
+  has_many   :messages,
+             :dependent => :destroy
+
   has_many   :items,
              :dependent => :destroy
 
