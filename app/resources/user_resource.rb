@@ -10,6 +10,8 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :buyer
+
   belongs_to :seller
 
   # Indirect associations
