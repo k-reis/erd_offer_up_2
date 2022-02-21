@@ -5,6 +5,8 @@ class SellerResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :items
+
   has_many   :users
 
   # Indirect associations
