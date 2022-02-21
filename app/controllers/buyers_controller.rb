@@ -1,10 +1,11 @@
 class BuyersController < ApplicationController
-  before_action :set_buyer, only: [:show, :edit, :update, :destroy]
+  before_action :set_buyer, only: %i[show edit update destroy]
 
   # GET /buyers
   def index
     @q = Buyer.ransack(params[:q])
-    @buyers = @q.result(:distinct => true).includes(:users, :items, :messages).page(params[:page]).per(10)
+    @buyers = @q.result(distinct: true).includes(:users, :items,
+                                                 :messages).page(params[:page]).per(10)
   end
 
   # GET /buyers/1
@@ -20,15 +21,14 @@ class BuyersController < ApplicationController
   end
 
   # GET /buyers/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /buyers
   def create
     @buyer = Buyer.new(buyer_params)
 
     if @buyer.save
-      redirect_to @buyer, notice: 'Buyer was successfully created.'
+      redirect_to @buyer, notice: "Buyer was successfully created."
     else
       render :new
     end
@@ -37,7 +37,7 @@ class BuyersController < ApplicationController
   # PATCH/PUT /buyers/1
   def update
     if @buyer.update(buyer_params)
-      redirect_to @buyer, notice: 'Buyer was successfully updated.'
+      redirect_to @buyer, notice: "Buyer was successfully updated."
     else
       render :edit
     end
@@ -46,17 +46,18 @@ class BuyersController < ApplicationController
   # DELETE /buyers/1
   def destroy
     @buyer.destroy
-    redirect_to buyers_url, notice: 'Buyer was successfully destroyed.'
+    redirect_to buyers_url, notice: "Buyer was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_buyer
-      @buyer = Buyer.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def buyer_params
-      params.fetch(:buyer, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_buyer
+    @buyer = Buyer.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def buyer_params
+    params.fetch(:buyer, {})
+  end
 end

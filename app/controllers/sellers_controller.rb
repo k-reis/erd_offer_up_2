@@ -1,10 +1,11 @@
 class SellersController < ApplicationController
-  before_action :set_seller, only: [:show, :edit, :update, :destroy]
+  before_action :set_seller, only: %i[show edit update destroy]
 
   # GET /sellers
   def index
     @q = Seller.ransack(params[:q])
-    @sellers = @q.result(:distinct => true).includes(:users, :items, :messages).page(params[:page]).per(10)
+    @sellers = @q.result(distinct: true).includes(:users, :items,
+                                                  :messages).page(params[:page]).per(10)
   end
 
   # GET /sellers/1
@@ -20,15 +21,14 @@ class SellersController < ApplicationController
   end
 
   # GET /sellers/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /sellers
   def create
     @seller = Seller.new(seller_params)
 
     if @seller.save
-      redirect_to @seller, notice: 'Seller was successfully created.'
+      redirect_to @seller, notice: "Seller was successfully created."
     else
       render :new
     end
@@ -37,7 +37,7 @@ class SellersController < ApplicationController
   # PATCH/PUT /sellers/1
   def update
     if @seller.update(seller_params)
-      redirect_to @seller, notice: 'Seller was successfully updated.'
+      redirect_to @seller, notice: "Seller was successfully updated."
     else
       render :edit
     end
@@ -46,17 +46,18 @@ class SellersController < ApplicationController
   # DELETE /sellers/1
   def destroy
     @seller.destroy
-    redirect_to sellers_url, notice: 'Seller was successfully destroyed.'
+    redirect_to sellers_url, notice: "Seller was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_seller
-      @seller = Seller.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def seller_params
-      params.fetch(:seller, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_seller
+    @seller = Seller.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def seller_params
+    params.fetch(:seller, {})
+  end
 end

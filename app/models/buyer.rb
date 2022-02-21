@@ -2,13 +2,13 @@ class Buyer < ApplicationRecord
   # Direct associations
 
   has_many   :messages,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :items,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :users,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
@@ -19,5 +19,4 @@ class Buyer < ApplicationRecord
   def to_s
     created_at
   end
-
 end

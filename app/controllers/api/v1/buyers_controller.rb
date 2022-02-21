@@ -13,7 +13,7 @@ class Api::V1::BuyersController < Api::V1::GraphitiController
     buyer = BuyerResource.build(params)
 
     if buyer.save
-      render jsonapi: buyer, status: 201
+      render jsonapi: buyer, status: :created
     else
       render jsonapi_errors: buyer
     end
@@ -33,7 +33,7 @@ class Api::V1::BuyersController < Api::V1::GraphitiController
     buyer = BuyerResource.find(params)
 
     if buyer.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: buyer
     end

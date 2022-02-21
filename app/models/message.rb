@@ -10,8 +10,8 @@ class Message < ApplicationRecord
   # Indirect associations
 
   has_one    :user,
-             :through => :item,
-             :source => :user
+             through: :item,
+             source: :user
 
   # Validations
 
@@ -20,5 +20,4 @@ class Message < ApplicationRecord
   def to_s
     seller.to_s
   end
-
 end

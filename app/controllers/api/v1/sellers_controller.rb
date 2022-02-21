@@ -13,7 +13,7 @@ class Api::V1::SellersController < Api::V1::GraphitiController
     seller = SellerResource.build(params)
 
     if seller.save
-      render jsonapi: seller, status: 201
+      render jsonapi: seller, status: :created
     else
       render jsonapi_errors: seller
     end
@@ -33,7 +33,7 @@ class Api::V1::SellersController < Api::V1::GraphitiController
     seller = SellerResource.find(params)
 
     if seller.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: seller
     end

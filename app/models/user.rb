@@ -8,12 +8,12 @@ class User < ApplicationRecord
   # Indirect associations
 
   has_one    :item,
-             :through => :seller,
-             :source => :items
+             through: :seller,
+             source: :items
 
   has_one    :message,
-             :through => :item,
-             :source => :messages
+             through: :item,
+             source: :messages
 
   # Validations
 
@@ -22,5 +22,4 @@ class User < ApplicationRecord
   def to_s
     email
   end
-
 end

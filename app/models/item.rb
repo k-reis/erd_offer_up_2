@@ -8,13 +8,13 @@ class Item < ApplicationRecord
   belongs_to :category
 
   has_many   :messages,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
   has_one    :user,
-             :through => :seller,
-             :source => :users
+             through: :seller,
+             source: :users
 
   # Validations
 
@@ -23,5 +23,4 @@ class Item < ApplicationRecord
   def to_s
     title
   end
-
 end
