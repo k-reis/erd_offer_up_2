@@ -23,4 +23,5 @@ class ItemResource < ApplicationResource
 
   # Indirect associations
 
+  has_one    :user
 end
