@@ -9,6 +9,10 @@ class Message < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :user,
+             :through => :item,
+             :source => :user
+
   # Validations
 
   # Scopes

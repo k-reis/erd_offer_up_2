@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :message,
+             :through => :item,
+             :source => :messages
+
   # Validations
 
   # Scopes
