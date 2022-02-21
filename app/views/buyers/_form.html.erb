@@ -1,0 +1,5 @@
+<% was_validated = buyer.errors.any? %>
+
+<%= form_with(model: buyer, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
