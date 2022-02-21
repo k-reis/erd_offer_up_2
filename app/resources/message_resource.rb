@@ -8,6 +8,8 @@ class MessageResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :item
+
   # Indirect associations
 
 end
