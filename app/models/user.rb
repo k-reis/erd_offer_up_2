@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :item,
+             :through => :seller,
+             :source => :items
+
   has_one    :message,
              :through => :item,
              :source => :messages

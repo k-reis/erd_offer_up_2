@@ -12,6 +12,10 @@ class Item < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :user,
+             :through => :seller,
+             :source => :users
+
   # Validations
 
   # Scopes
