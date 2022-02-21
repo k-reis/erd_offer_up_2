@@ -1,6 +1,8 @@
 class Item < ApplicationRecord
   # Direct associations
 
+  belongs_to :buyer
+
   belongs_to :seller
 
   belongs_to :category

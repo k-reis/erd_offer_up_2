@@ -1,6 +1,9 @@
 class Buyer < ApplicationRecord
   # Direct associations
 
+  has_many   :items,
+             :dependent => :destroy
+
   has_many   :users,
              :dependent => :destroy
 
