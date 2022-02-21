@@ -3,7 +3,8 @@ class BuyersController < ApplicationController
 
   # GET /buyers
   def index
-    @buyers = Buyer.page(params[:page]).per(10)
+    @q = Buyer.ransack(params[:q])
+    @buyers = @q.result(:distinct => true).includes(:users, :items, :messages).page(params[:page]).per(10)
   end
 
   # GET /buyers/1
