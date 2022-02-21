@@ -4,6 +4,8 @@ RSpec.describe Buyer, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:messages) }
+
     it { should have_many(:items) }
 
     it { should have_many(:users) }
