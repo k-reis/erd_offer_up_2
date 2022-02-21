@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Direct associations
 
+  belongs_to :buyer
+
   belongs_to :seller
 
   # Indirect associations
