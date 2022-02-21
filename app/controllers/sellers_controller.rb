@@ -8,6 +8,9 @@ class SellersController < ApplicationController
 
   # GET /sellers/1
   def show
+    @message = Message.new
+    @item = Item.new
+    @user = User.new
   end
 
   # GET /sellers/new
