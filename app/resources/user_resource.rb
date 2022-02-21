@@ -16,4 +16,5 @@ class UserResource < ApplicationResource
 
   # Indirect associations
 
+  has_one    :message
 end
