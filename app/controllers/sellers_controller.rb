@@ -3,7 +3,7 @@ class SellersController < ApplicationController
 
   # GET /sellers
   def index
-    @sellers = Seller.all
+    @sellers = Seller.page(params[:page]).per(10)
   end
 
   # GET /sellers/1

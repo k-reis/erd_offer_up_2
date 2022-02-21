@@ -3,7 +3,7 @@ class BuyersController < ApplicationController
 
   # GET /buyers
   def index
-    @buyers = Buyer.all
+    @buyers = Buyer.page(params[:page]).per(10)
   end
 
   # GET /buyers/1
