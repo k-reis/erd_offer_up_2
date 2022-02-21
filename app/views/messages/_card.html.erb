@@ -7,17 +7,29 @@
     <dl class="mb-1">
       <dt>Seller</dt>
       <!-- Display seller_id start -->
-      <dd><%= message.seller_id %></dd>
+      <dd>
+        <% if @message.seller.present? %>
+          <%= link_to message.seller, message.seller %>
+        <% end %>
+      </dd>
       <!-- Display seller_id end -->
 
       <dt>Buyer</dt>
       <!-- Display buyer_id start -->
-      <dd><%= message.buyer_id %></dd>
+      <dd>
+        <% if @message.buyer.present? %>
+          <%= link_to message.buyer, message.buyer %>
+        <% end %>
+      </dd>
       <!-- Display buyer_id end -->
 
       <dt>Item</dt>
       <!-- Display item_id start -->
-      <dd><%= message.item_id %></dd>
+      <dd>
+        <% if @message.item.present? %>
+          <%= link_to message.item, message.item %>
+        <% end %>
+      </dd>
       <!-- Display item_id end -->
 
     </dl>

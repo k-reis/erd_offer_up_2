@@ -17,12 +17,20 @@
 
       <dt>Seller</dt>
       <!-- Display seller_id start -->
-      <dd><%= user.seller_id %></dd>
+      <dd>
+        <% if @user.seller.present? %>
+          <%= link_to user.seller, user.seller %>
+        <% end %>
+      </dd>
       <!-- Display seller_id end -->
 
       <dt>Buyer</dt>
       <!-- Display buyer_id start -->
-      <dd><%= user.buyer_id %></dd>
+      <dd>
+        <% if @user.buyer.present? %>
+          <%= link_to user.buyer, user.buyer %>
+        <% end %>
+      </dd>
       <!-- Display buyer_id end -->
 
       <dt>Name</dt>
