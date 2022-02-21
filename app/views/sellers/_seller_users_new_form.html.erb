@@ -1,52 +1,30 @@
-<!-- Form user start -->
 <%= form_with(model: @user, local: true) do |f| %>
-<!-- Form user end -->
 
-  <!-- Label and input for email start -->
   <div class="form-group">
     <%= f.label :email %>
 
-    <!-- Input for email start -->
     <%= f.text_field :email, class: "form-control" %>
-    <!-- Input for email end -->
   </div>
-  <!-- Label and input for email end -->
 
-  <!-- Label and input for password start -->
   <div class="form-group">
     <%= f.label :password %>
 
-    <!-- Input for password start -->
     <%= f.text_field :password, class: "form-control" %>
-    <!-- Input for password end -->
   </div>
-  <!-- Label and input for password end -->
 
-  <!-- Label and input for seller_id start -->
-  <!-- Input for seller_id start -->
   <%= f.hidden_field :seller_id, value: @seller.id %>
-  <!-- Input for seller_id end -->
-  <!-- Label and input for seller_id end -->
 
-  <!-- Label and input for buyer_id start -->
   <div class="form-group">
     <%= f.label :buyer_id %>
 
-    <!-- Input for buyer_id start -->
     <%= f.collection_select :buyer_id, Buyer.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for buyer_id end -->
   </div>
-  <!-- Label and input for buyer_id end -->
 
-  <!-- Label and input for name start -->
   <div class="form-group">
     <%= f.label :name %>
 
-    <!-- Input for name start -->
     <%= f.text_field :name, class: "form-control" %>
-    <!-- Input for name end -->
   </div>
-  <!-- Label and input for name end -->
 
   <%= f.submit "Create user", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

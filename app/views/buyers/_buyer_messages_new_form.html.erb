@@ -1,32 +1,18 @@
-<!-- Form message start -->
 <%= form_with(model: @message, local: true) do |f| %>
-<!-- Form message end -->
 
-  <!-- Label and input for seller_id start -->
   <div class="form-group">
     <%= f.label :seller_id %>
 
-    <!-- Input for seller_id start -->
     <%= f.collection_select :seller_id, Seller.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for seller_id end -->
   </div>
-  <!-- Label and input for seller_id end -->
 
-  <!-- Label and input for buyer_id start -->
-  <!-- Input for buyer_id start -->
   <%= f.hidden_field :buyer_id, value: @buyer.id %>
-  <!-- Input for buyer_id end -->
-  <!-- Label and input for buyer_id end -->
 
-  <!-- Label and input for item_id start -->
   <div class="form-group">
     <%= f.label :item_id %>
 
-    <!-- Input for item_id start -->
     <%= f.collection_select :item_id, Item.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for item_id end -->
   </div>
-  <!-- Label and input for item_id end -->
 
   <%= f.submit "Create message", class: "btn btn-block btn-outline-secondary" %>
 <% end %>
